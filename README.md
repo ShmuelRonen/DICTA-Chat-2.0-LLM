@@ -42,7 +42,7 @@ git clone https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM.git
 cd DICTA-Chat-2.0-LLM
 ```
 ```
-Click on: init_env.bat
+Click on: init_env_dicta.bat
 ```
 The script will automatically set up the virtual environment and install the required dependencies.
 
@@ -66,7 +66,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 After the installation, you can run the app by executing:
 ```
-python dicta.py
+python chat_dicta.py
 ```
 This will start the Gradio interface locally, which you can access through the provided URL in your command line interface.
 

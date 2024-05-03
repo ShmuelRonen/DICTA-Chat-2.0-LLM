@@ -78,7 +78,7 @@ DICTA-Chat leverages the powerful Hebrew language model developed by [DICTA](htt
 
 ## Feedback and Support
 
-If you have any questions, suggestions, or issues regarding DICTA-Chat, please feel free to [open an issue](https://github.com/your-username/DICTA-Chat/issues) on the GitHub repository. We appreciate your feedback and contributions to improving the application.
+If you have any questions, suggestions, or issues regarding DICTA-Chat, please feel free to [open an issue](https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM/issues) on the GitHub repository. We appreciate your feedback and contributions to improving the application.
 
 ## License
 

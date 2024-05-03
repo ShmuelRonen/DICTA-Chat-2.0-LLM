@@ -3,7 +3,7 @@
 <h3 align="center">An Interactive Chatbot Powered by DICTA's Hebrew Language Model</h3>
 
 <p align="left">
-DICTA-Chat is an intuitive web-based interface that allows users to engage in interactive conversations with a powerful Hebrew language model developed by DICTA. With customizable generation parameters and real-time responses, DICTA-Chat provides a seamless and engaging user experience for generating high-quality Hebrew text.
+DICTA-Chat is an intuitive web-based interface working on NVIDIA GPU's that allows users to engage in interactive conversations with a powerful Hebrew language model developed by DICTA. With customizable generation parameters and real-time responses, DICTA-Chat provides a seamless and engaging user experience for generating high-quality Hebrew text.
 </p>
 
 ![Dicta-chat](https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM/assets/80190186/a971c385-6c4c-4f01-8ee6-7f6f88343790)

@@ -41,8 +41,9 @@ DICTA-Chat is an intuitive web-based interface working on NVIDIA GPU's that allo
 git clone https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM.git
 cd DICTA-Chat-2.0-LLM
 ```
+2. Click on:
 ```
-Click on: init_env_dicta.bat
+init_env_dicta.bat
 ```
 The script will automatically set up the virtual environment and install the required dependencies.
 
@@ -52,8 +53,9 @@ The script will automatically set up the virtual environment and install the req
 ```
 git clone https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM.git
 cd DICTA-Chat-2.0-LLM
-Copy code
-3. Create and activate a virtual environment:
+```
+2. Create and activate a virtual environment:
+ ```
 python -m venv venv
 venv\Scripts\activate
 ```

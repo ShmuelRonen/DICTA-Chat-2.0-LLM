@@ -82,6 +82,6 @@ If you have any questions, suggestions, or issues regarding DICTA-Chat, please f
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/your-username/DICTA-Chat/blob/main/LICENSE).
-Note: Replace https://your-repo-url/screenshot.png with the actual URL of a screenshot showcasing your DICTA-Chat interface, and replace https://github.com/your-username/DICTA-Chat with the actual URL of your GitHub repository.
+This project is licensed under the [MIT License](https://github.com/ShmuelRonen/DICTA-Chat-2.0-LLM/blob/main/LICENSE).
+
 This README.md file provides an overview of the DICTA-Chat application, highlighting its key features, installation instructions, acknowledgements, and support information. It follows the markdown format and includes the necessary formatting tags and symbols.

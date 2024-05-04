@@ -66,6 +66,7 @@ def generate_response(input_text, chat_history, max_new_tokens, min_length, no_r
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
     response = response.split("עוזר:")[-1].strip()
     
+    # Remove any instances of the [/INST] token from the response
     response = response.replace("[/INST]", "").strip()
     
     return response
@@ -115,12 +116,13 @@ def submit_on_enter(input_text, history, max_new_tokens, min_length, no_repeat_n
 def clear_chat(chatbot, message):
     return [], message
 
-def save_system_prompt(system_prompt, prompt_name):
+def save_system_prompt(system_prompt, prompt_name, prompt_dropdown):
     prompt_dir = "system_prompts"
     os.makedirs(prompt_dir, exist_ok=True)
     file_path = Path(prompt_dir) / f"{prompt_name}.txt"
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(system_prompt)
+    prompt_dropdown.choices = os.listdir(prompt_dir)
     return f"System prompt saved as {prompt_name}.txt"
 
 def load_system_prompt(prompt_file):
@@ -152,7 +154,7 @@ with gr.Blocks() as demo:
     with gr.Accordion("Adjustments", open=False):
         with gr.Row():    
             with gr.Column():
-                max_new_tokens = gr.Slider(minimum=10, maximum=1500, value=360, step=10, label="Max New Tokens")
+                max_new_tokens = gr.Slider(minimum=10, maximum=2500, value=360, step=10, label="Max New Tokens")
                 min_length = gr.Slider(minimum=10, maximum=300, value=100, step=10, label="Min Length")
                 no_repeat_ngram_size = gr.Slider(minimum=1, maximum=6, value=4, step=1, label="No Repeat N-Gram Size")
             with gr.Column():
@@ -169,8 +171,8 @@ with gr.Blocks() as demo:
             prompt_name = gr.Textbox(placeholder="Write Prompt Name")
             save_system_prompt_btn = gr.Button("Save System Prompt")
             prompt_dir = "system_prompts"
-            os.makedirs(prompt_dir, exist_ok=True)
-            prompt_dropdown = gr.Dropdown(label="Select a system prompt", choices=os.listdir(prompt_dir))
+            os.makedirs(prompt_dir, exist_ok=True)  # Create the directory if it doesn't exist
+            prompt_dropdown = gr.Dropdown(label="Select a system prompt:", choices=os.listdir(prompt_dir))
             load_system_prompt_btn = gr.Button("Load System Prompt")
 
     submit.click(chat, inputs=[message, chatbot, max_new_tokens, min_length, no_repeat_ngram_size, num_beams, early_stopping, temperature, top_p, top_k, create_paragraphs_checkbox, custom_system_prompt_enabled, custom_system_prompt], outputs=[chatbot, chatbot, message])
@@ -178,8 +180,7 @@ with gr.Blocks() as demo:
     clear_chat_btn.click(clear_chat, inputs=[chatbot, message], outputs=[chatbot, message])
     copy_last_btn.click(copy_last_response, inputs=chatbot, outputs=message)
     copy_system_prompt_btn.click(copy_system_prompt, outputs=custom_system_prompt)
-    save_system_prompt_btn.click(save_system_prompt, inputs=[custom_system_prompt, prompt_name], outputs=None)
-    save_system_prompt_btn.click(lambda: prompt_dropdown.update(choices=os.listdir(prompt_dir)), None, prompt_dropdown)
+    save_system_prompt_btn.click(save_system_prompt, inputs=[custom_system_prompt, prompt_name, prompt_dropdown], outputs=None)
     load_system_prompt_btn.click(load_system_prompt, inputs=prompt_dropdown, outputs=custom_system_prompt)
     
     demo.css = """
@@ -198,10 +199,6 @@ with gr.Blocks() as demo:
         }
         
         #subtitle {
-            text-align: left !important;
-        }
-        
-        #model_link {
             text-align: left !important;
         }
         
